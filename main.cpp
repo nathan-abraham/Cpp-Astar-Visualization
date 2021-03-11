@@ -3,6 +3,9 @@
 #include <unordered_map>
 #include <limits>
 #include <algorithm>
+#include <chrono>
+
+using namespace std::chrono;
 
 const int width = 800;
 const int rows = 50;
@@ -322,8 +325,12 @@ int main()
                             }
                         }
                         started = true;
+                        high_resolution_clock::time_point start_time = high_resolution_clock::now(); 
                         algorithm(grid, start, end, window, rows, width);
+                        high_resolution_clock::time_point stop_time = high_resolution_clock::now(); 
                         started = false;
+                        duration<double> time_span = duration_cast<duration<double>>(stop_time - start_time);
+                        std::cout << "Algorithm took " << time_span.count() << " seconds" << std::endl;
                     }
                     else if (event.key.code == sf::Keyboard::C) {
                         start = NULL;
