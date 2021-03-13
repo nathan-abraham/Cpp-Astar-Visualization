@@ -5,4 +5,4 @@ C++ pathfinding visualization that implements the A* Pathfinding Algorithm. This
 The start node is yellow, the end node is cyan, the barrier nodes are white, and the path nodes are magenta
 
 ## Demo
-![GIF Demo](demo.gif)
+![GIF Demo](demo2.gif)
