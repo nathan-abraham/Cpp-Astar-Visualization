@@ -290,31 +290,38 @@ int main()
             if (!started) {
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                     sf::Vector2i posPixel = sf::Mouse::getPosition(window);
-                    sf::Vector2i pos = getClickedPos(posPixel, rows, width);
-                    Spot &temp = grid.at(pos.y).at(pos.x);
-                    
-                    if (start == NULL && &temp != end) {
-                        start = &temp;
-                        start->makeStart();
-                    } else if (end == NULL && &temp != start) {
-                        end = &temp;
-                        end->makeEnd();
-                    } else if (&temp != end && &temp != start) {
-                        temp.makeBarrier();
+                    if (posPixel.x >= 0 && posPixel.x <= width && posPixel.y >= 0 && posPixel.y <= width) {
+                        sf::Vector2i pos = getClickedPos(posPixel, rows, width);
+                            Spot &temp = grid.at(pos.y).at(pos.x);
+                            if (start == NULL && &temp != end) {
+                                start = &temp;
+                                start->makeStart();
+                            } else if (end == NULL && &temp != start) {
+                                end = &temp;
+                                end->makeEnd();
+                            } else if (&temp != end && &temp != start) {
+                                temp.makeBarrier();
+                            }
                     }
                 }
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Right)) {
                     sf::Vector2i posPixel = sf::Mouse::getPosition(window);
-                    sf::Vector2i pos = getClickedPos(posPixel, rows, width);
-                    Spot &temp = grid.at(pos.y).at(pos.x);
-                    temp.reset();
+                    if (posPixel.x >= 0 && posPixel.x <= width && posPixel.y >= 0 && posPixel.y <= width) {
+                        sf::Vector2i pos = getClickedPos(posPixel, rows, width);
+                        if (posPixel.x >= 0 && posPixel.x <= width && posPixel.y >= 0 && posPixel.y) {
+                            Spot &temp = grid.at(pos.y).at(pos.x);
+                            temp.reset();
+                        }
+                    }
                 }
                 if (event.type == sf::Event::MouseMoved && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
                     sf::Vector2i posPixel = sf::Mouse::getPosition(window);
                     sf::Vector2i pos = getClickedPos(posPixel, rows, width);
-                    Spot &temp = grid.at(pos.y).at(pos.x);
-                    if (start != NULL && end != NULL && &temp != end && &temp != start) {
-                        temp.makeBarrier();
+                    if (posPixel.x >= 0 && posPixel.x <= width && posPixel.y >= 0 && posPixel.y <= width) {
+                        Spot &temp = grid.at(pos.y).at(pos.x);
+                        if (start != NULL && end != NULL && &temp != end && &temp != start) {
+                            temp.makeBarrier();
+                        }
                     }
                 }
                 if (event.type == sf::Event::KeyPressed) {
