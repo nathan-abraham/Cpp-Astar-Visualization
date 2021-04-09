@@ -269,6 +269,7 @@ bool algorithm(std::vector<std::vector<Spot>> &grid, Spot* start, Spot* end, sf:
     }
 
     drawMain(window, grid, rows, width);
+
     return false;
 }
 
