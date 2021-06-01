@@ -11,4 +11,4 @@ The A* algorithm is an informed pathfinding algorithm. It is very similar to Dij
 ![GIF Demo](demo.gif)
 
 ## Note
-The executable is dynamically-linked, meaning that it may not run on all computer.
+The executable is dynamically-linked, meaning that it may not run on all computers.
