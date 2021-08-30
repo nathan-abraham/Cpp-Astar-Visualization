@@ -346,6 +346,10 @@ int main()
                         grid = makeGrid(rows, width);
                     }
                 }
+                if (event.type == sf::Event::Resized) {
+                    sf::FloatRect visibleArea(0.f, 0.f, event.size.width, event.size.height);
+                    window.setView(sf::View(visibleArea));
+                }
             }
 
         }
