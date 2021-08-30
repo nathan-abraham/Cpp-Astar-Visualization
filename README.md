@@ -8,7 +8,7 @@ Start by placing the start and end nodes by clicking at the desired location (th
 The A* algorithm is an informed pathfinding algorithm. It is very similar to Dijkstra's algorithm, but unlike Dijkstra, A* uses a heuristic to approximate the distance from the current node to the end node. In this case, the heuristic I used was Manhattan distance, which is just the absolute value of the differences between the x-coordinates and y-coordinates of the two nodes in question. 
 
 ## Demo
-![GIF Demo](demo.gif)
+![GIF Demo](static/demo.gif)
 
 ## Note
 The executable is dynamically-linked, meaning that it may not run on all computers.
